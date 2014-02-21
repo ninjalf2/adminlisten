@@ -20,7 +20,7 @@ def sayFilter(userid, text, teamonly):
 
             if((teamonly and (admin.team != player.team)) or (player.isdead and not admin.isdead)):
                 text = text.strip('"')
-                if player.isdead and not admin.isdead:
+                if (player.isdead and not admin.isdead) or (player.isdead and (teamonly and admin.team != player.team)):
                     dead = "*SPEC* " if player.team == 1 or player.team == 0 else "*DEAD* "
                 else:
                     dead = ""
